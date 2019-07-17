@@ -15,7 +15,7 @@ SPACE_SHIP = np.array(
 
 
 def randomGrid(N, alive_ratio=0.2):
-    assert alive_ratio < 1, "alive_ratio must be less than 1"
+    assert alive_ratio <= 1, "alive_ratio must be <= 1"
     return np.random.choice(
         [1, 0], N * N, p=[alive_ratio, 1 - alive_ratio]
     ).reshape(N, N)
