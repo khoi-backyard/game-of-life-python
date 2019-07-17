@@ -1,5 +1,7 @@
 # Conway's Game of Life
 
+![life](./life.gif)
+
 ## Rules:
 
 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
