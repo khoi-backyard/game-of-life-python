@@ -3,11 +3,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+
 def randomGrid(N, alive_ratio=0.2):
     assert alive_ratio <= 1, "alive_ratio must be <= 1"
     return np.random.choice([1, 0], N * N, p=[alive_ratio, 1 - alive_ratio]).reshape(
         N, N
     )
+
 
 def update(frameNum, img, grid, N):
     newGrid = grid.copy()
@@ -38,7 +40,7 @@ def update(frameNum, img, grid, N):
                 newGrid[i, j] = 1
     img.set_data(newGrid)
     grid[:] = newGrid[:]
-    return img,
+    return (img,)
 
 
 def main():
@@ -47,7 +49,7 @@ def main():
         "--size", dest="grid_size", type=int, default=16, help="the grid size"
     )
     parser.add_argument(
-        "--interval", dest="interval", type=int, default=50, help="the update interval"
+        "--interval", dest="interval", type=int, default=20, help="the update interval"
     )
     args = parser.parse_args()
 
@@ -57,7 +59,7 @@ def main():
     grid = randomGrid(GRID_SIZE)
 
     fig, ax = plt.subplots()
-    plt.axis('off')
+    plt.axis("off")
     img = ax.imshow(grid, interpolation="nearest")
     ani = animation.FuncAnimation(
         fig,
@@ -65,7 +67,6 @@ def main():
         fargs=(img, grid, GRID_SIZE),
         frames=10,
         interval=interval,
-        save_count=50,
     )
     plt.show()
 
