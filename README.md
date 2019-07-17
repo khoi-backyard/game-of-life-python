@@ -9,5 +9,6 @@
 
 # References
 
+- [Python Playground by Mahesh Venkitachalam](https://nostarch.com/pythonplayground)
 - [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 - https://playgameoflife.com/
